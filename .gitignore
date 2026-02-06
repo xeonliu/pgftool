@@ -1,0 +1,15 @@
+# Compiled executables
+dump_pgf
+mix_pgf
+ttf_pgf
+*.exe
+*.o
+
+# CMake build artifacts
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+*.cmake
+!CMakeLists.txt
