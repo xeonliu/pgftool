@@ -18,5 +18,6 @@ cmake ..
 make
 ```
 
-Note: The CMake build requires libfreetype-dev to be installed on your system.
-On Ubuntu/Debian: `sudo apt-get install libfreetype6-dev`
+Note: The CMake build will use the system FreeType library if available.
+If not found, it will fall back to the bundled library.
+To install system FreeType on Ubuntu/Debian: `sudo apt-get install libfreetype6-dev`

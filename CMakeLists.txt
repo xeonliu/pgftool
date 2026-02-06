@@ -10,9 +10,11 @@ find_package(Freetype)
 
 # Include directories
 include_directories(${CMAKE_SOURCE_DIR})
-include_directories(${CMAKE_SOURCE_DIR}/freetype2)
 if(FREETYPE_FOUND)
     include_directories(${FREETYPE_INCLUDE_DIRS})
+else()
+    # Use bundled FreeType headers if system FreeType is not available
+    include_directories(${CMAKE_SOURCE_DIR}/freetype2)
 endif()
 
 # Common source files
