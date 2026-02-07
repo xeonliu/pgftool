@@ -26,3 +26,6 @@ dependencies = [
 dump_pgf = "pgftool.dump_pgf:main"
 mix_pgf = "pgftool.mix_pgf:main"
 ttf_pgf = "pgftool.ttf_to_pgf:main"
+
+[tool.setuptools]
+packages = ["pgftool"]

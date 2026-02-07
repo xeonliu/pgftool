@@ -37,13 +37,13 @@ def load_ttf_glyph(face: freetype.Face, ucs: int) -> dict:
     """Load a glyph from TrueType font."""
     try:
         face.load_char(ucs, freetype.FT_LOAD_DEFAULT | freetype.FT_LOAD_NO_HINTING | freetype.FT_LOAD_NO_BITMAP)
-    except freetype.FT_Exception:
+    except (freetype.FT_Exception, Exception):
         return None
     
     if face.glyph.format != freetype.FT_GLYPH_FORMAT_BITMAP:
         try:
             face.glyph.render_mode = freetype.FT_RENDER_MODE_NORMAL
-        except:
+        except (freetype.FT_Exception, Exception):
             pass
     
     bitmap = face.glyph.bitmap

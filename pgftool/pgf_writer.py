@@ -110,14 +110,13 @@ class MetricsTable:
         for i in range(self.total):
             if self.table[i].h == fp.h and self.table[i].v == fp.v:
                 self.freq[i] += 1
-                # Re-sort by frequency
+                # Re-sort by frequency using insertion sort
                 p = i
-                for j in range(p):
-                    if self.freq[j] < self.freq[p]:
-                        # Swap
-                        self.table[j], self.table[p] = self.table[p], self.table[j]
-                        self.freq[j], self.freq[p] = self.freq[p], self.freq[j]
-                        break
+                while p > 0 and self.freq[p] > self.freq[p - 1]:
+                    # Swap with previous element
+                    self.table[p], self.table[p - 1] = self.table[p - 1], self.table[p]
+                    self.freq[p], self.freq[p - 1] = self.freq[p - 1], self.freq[p]
+                    p -= 1
                 return
         
         # Add new entry
